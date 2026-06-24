@@ -250,7 +250,23 @@ Invalid: ▉▉ 2
 ```
 
 These graphs help visualize the main output types: nested hierarchies, cyclic groups, and summary statistics.
+### 🎞️ Animation & Visual Effects
 
+- Smooth transitions between tree nodes
+- Animated loading and result rendering
+- Highlighted cycle paths with color cues
+- Interactive hover effects for nodes and stats
+
+### 🧭 Flow Chart Example
+
+```text
+Input Data --> Validate Entries --> Process Graph --> Detect Cycles
+                      |                 |                  |
+                      v                 v                  v
+                 Invalid Entries     Build Trees       Summarize Output
+```
+
+These additions show how the app combines animation, flow-driven processing, and visual effects to improve usability and clarity.
 ---
 
 ## �🔍 Processing Rules Implemented
