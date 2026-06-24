@@ -221,52 +221,44 @@ npm start
 
 ## � Graphical Visualization
 
-### Hierarchy Tree Example
+### Mermaid Hierarchy Diagram
 
-```text
-A
-├─ B
-│  └─ D
-└─ C
+```mermaid
+flowchart TD
+  A((A)) --> B((B))
+  A --> C((C))
+  B --> D((D))
+  C --> E((E))
+  X((X)) --> Y((Y))
+  Y --> Z((Z))
+  Z -. "cycle" .-> X
+
+  classDef tree fill:#2563eb,stroke:#bfdbfe,color:#fff;
+  classDef cycle fill:#dc2626,stroke:#fecaca,color:#fff;
+  class A,B,C,D,E tree;
+  class X,Y,Z cycle;
 ```
 
-### Cycle Detection Example
+### Mermaid Flowchart
 
-```text
-X -> Y -> Z -> X
+```mermaid
+flowchart TD
+  Input["Input Data"] --> Validate["Validate Entries"]
+  Validate --> Process["Process Graph"]
+  Process --> Cycles["Detect Cycles"]
+  Validate --> Invalid["Invalid Entries"]
+  Process --> Build["Build Trees"]
+  Cycles --> Summary["Summarize Output"]
 ```
 
-### Summary Charts
+### Animation & Visual Effects
 
-- **Total Trees**: 3
-- **Total Cycles**: 1
-- **Largest Tree Depth**: 4
-- **Invalid Entries**: 2
+- Smooth transitions between tree node expansion states
+- Animated loading spinner and result reveal
+- Highlighted cycle path styling with red accents
+- Hover effects on node cards and summary metrics
 
-```text
-Trees: ▉▉▉▉▉▉▉▉▉▉ 10
-Cycles: ▉▉▉ 3
-Invalid: ▉▉ 2
-```
-
-These graphs help visualize the main output types: nested hierarchies, cyclic groups, and summary statistics.
-### 🎞️ Animation & Visual Effects
-
-- Smooth transitions between tree nodes
-- Animated loading and result rendering
-- Highlighted cycle paths with color cues
-- Interactive hover effects for nodes and stats
-
-### 🧭 Flow Chart Example
-
-```text
-Input Data --> Validate Entries --> Process Graph --> Detect Cycles
-                      |                 |                  |
-                      v                 v                  v
-                 Invalid Entries     Build Trees       Summarize Output
-```
-
-These additions show how the app combines animation, flow-driven processing, and visual effects to improve usability and clarity.
+These Mermaid diagrams provide visual flow and tree illustrations for viewers with Mermaid-enabled rendering.
 ---
 
 ## �🔍 Processing Rules Implemented
