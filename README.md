@@ -219,7 +219,41 @@ npm start
 
 ---
 
-## 🔍 Processing Rules Implemented
+## � Graphical Visualization
+
+### Hierarchy Tree Example
+
+```text
+A
+├─ B
+│  └─ D
+└─ C
+```
+
+### Cycle Detection Example
+
+```text
+X -> Y -> Z -> X
+```
+
+### Summary Charts
+
+- **Total Trees**: 3
+- **Total Cycles**: 1
+- **Largest Tree Depth**: 4
+- **Invalid Entries**: 2
+
+```text
+Trees: ▉▉▉▉▉▉▉▉▉▉ 10
+Cycles: ▉▉▉ 3
+Invalid: ▉▉ 2
+```
+
+These graphs help visualize the main output types: nested hierarchies, cyclic groups, and summary statistics.
+
+---
+
+## �🔍 Processing Rules Implemented
 
 * Validates node format `X->Y`
 * Rejects self-loops (`A->A`)
