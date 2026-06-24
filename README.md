@@ -3,9 +3,9 @@
 ---
 ## ✨ Overview
 
-BFHL Hierarchy Analyzer is a full-stack web application built as part of the Chitkara Full Stack Engineering Challenge. The platform accepts hierarchical node relationships, processes them according to predefined rules, detects cycles, removes duplicates, validates inputs, and returns structured hierarchy insights.
+BFHL Hierarchy Analyzer is a full-stack web application built as part of the Chitkara Full Stack Engineering Challenge. The platform accepts hierarchical node relationships, processes them according to business rules, and provides comprehensive analytics. 
 
-The application consists of a REST API and an interactive frontend. Users can submit node relationships, visualize generated trees, inspect cycle detection results, review invalid entries, and analyze summary statistics through a clean and responsive interface.
+The application consists of a REST API and an interactive frontend. Users can submit node relationships, visualize generated trees, inspect cycle detection results, review invalid entries, and analyze data through a responsive interface.
 
 The solution is designed with performance, scalability, and maintainability in mind, ensuring responses remain fast even for larger datasets.
 
@@ -59,10 +59,11 @@ The solution is designed with performance, scalability, and maintainability in m
 
 | Category            | Technologies              |
 | ------------------- | ------------------------- |
-| **Backend**         | Node.js, Express.js       |
-| **Frontend**        | HTML, CSS, JavaScript     |
+| **Frontend**        | Next.js, TypeScript, React |
+| **Styling**         | Tailwind CSS, PostCSS      |
+| **Backend**         | Next.js API Routes        |
 | **API Testing**     | Postman                   |
-| **Deployment**      | Render / Railway / Vercel |
+| **Deployment**      | Vercel                    |
 | **Version Control** | Git & GitHub              |
 
 ---
@@ -70,35 +71,51 @@ The solution is designed with performance, scalability, and maintainability in m
 ## 📁 Directory Structure
 
 ```text
-BFHL-Hierarchy-Analyzer/
-├── backend/
-│   ├── controllers/
-│   │   └── hierarchyController.js
-│   ├── routes/
-│   │   └── bfhlRoutes.js
-│   ├── utils/
-│   │   ├── validator.js
-│   │   ├── treeBuilder.js
-│   │   └── cycleDetector.js
-│   ├── server.js
-│   └── package.json
+Bajaj-Finserv-FullStack/
+├── app/
+│   ├── api/
+│   │   └── bfhl/
+│   │       └── route.ts          # API endpoint handler
+│   ├── bfhl/
+│   │   └── page.tsx              # BFHL page component
+│   ├── layout.tsx                # Root layout
+│   ├── page.tsx                  # Home page
+│   └── globals.css               # Global styles
 │
-├── frontend/
-│   ├── css/
-│   ├── js/
-│   ├── index.html
-│   └── assets/
+├── components/
+│   ├── ui/
+│   │   ├── button.tsx            # Button UI component
+│   │   └── card.tsx              # Card UI component
+│   └── bfhl-form.tsx             # BFHL form component
 │
-├── README.md
-├── .gitignore
-└── package.json
+├── lib/
+│   ├── bfhl-processor.ts         # Core hierarchy processing logic
+│   └── utils.ts                  # Utility functions
+│
+├── public/
+│   ├── apple-icon.png            # Apple favicon
+│   ├── icon-dark-32x32.png       # Dark theme icon
+│   ├── icon-light-32x32.png      # Light theme icon
+│   └── icon.svg                  # SVG icon
+│
+├── .gitignore                    # Git ignore file
+├── components.json               # Component configuration
+├── LICENSE                       # MIT License
+├── next.config.mjs               # Next.js configuration
+├── package.json                  # Project dependencies
+├── package-lock.json             # Dependency lock file
+├── pnpm-lock.yaml                # PNPM lock file
+├── postcss.config.mjs            # PostCSS configuration
+├── README.md                     # Project documentation
+├── tsconfig.json                 # TypeScript configuration
+└── next-env.d.ts                 # Next.js environment types
 ```
 
 ---
 
 ## 🚀 API Endpoint
 
-### POST `/bfhl`
+### POST `/api/bfhl`
 
 #### Request Body
 
@@ -145,46 +162,59 @@ BFHL-Hierarchy-Analyzer/
 
 ### Prerequisites
 
-* Node.js
-* npm
+* Node.js (v16 or higher)
+* npm or pnpm
 
 ### Installation
 
 #### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/BFHL-Hierarchy-Analyzer.git
-cd BFHL-Hierarchy-Analyzer
+git clone https://github.com/Anmol283/Bajaj-Finserv-FullStack.git
+cd Bajaj-Finserv-FullStack
 ```
 
 #### Install Dependencies
 
 ```bash
 npm install
+# or
+pnpm install
 ```
 
 #### Configure Environment Variables
 
-Create a `.env` file:
+Create a `.env.local` file:
 
 ```env
-PORT=3000
+NEXT_PUBLIC_API_URL=http://localhost:3000
 
-USER_ID=yourname_ddmmyyyy
-EMAIL_ID=yourcollegeemail@example.com
-COLLEGE_ROLL_NUMBER=your_roll_number
+NEXT_PUBLIC_USER_ID=yourname_ddmmyyyy
+NEXT_PUBLIC_EMAIL_ID=yourcollegeemail@example.com
+NEXT_PUBLIC_COLLEGE_ROLL_NUMBER=your_roll_number
 ```
 
 #### Run the Application
 
 ```bash
-npm start
+npm run dev
+# or
+pnpm dev
 ```
+
+The application will be available at `http://localhost:3000`
 
 Development mode:
 
 ```bash
 npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+npm start
 ```
 
 ---
@@ -205,33 +235,30 @@ npm run dev
 ## 🎨 Frontend Features
 
 * Input area for node relationships
-* API integration with `/bfhl`
+* API integration with `/api/bfhl`
 * Tree visualization
 * Cycle detection display
 * Summary statistics dashboard
 * Responsive UI design
-* Error handling
+* Error handling and validation messages
+* Dark/Light theme support
 
 ---
 
 ## 🌐 Deployment
 
-### Backend
+### Deploy to Vercel
 
-Deploy using:
+The easiest way to deploy this Next.js app is using Vercel:
 
-* Render
-* Railway
-* Vercel
-* AWS
+```bash
+npm install -g vercel
+vercel
+```
 
-### Frontend
+Or connect your GitHub repository to Vercel for automatic deployments.
 
-Deploy using:
-
-* Vercel
-* Netlify
-* GitHub Pages
+Visit: https://bajaj-finserv-full-stack-lac.vercel.app
 
 ---
 
@@ -271,7 +298,7 @@ git push origin feature-branch
 
 ## 📜 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
